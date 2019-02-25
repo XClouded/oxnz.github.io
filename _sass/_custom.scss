@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2016 Will Z, All Rights Reserved.
+ * Copyright (C) 2016-2017 oxnz, All Rights Reserved.
  */
 
 body {
@@ -8,8 +8,8 @@ body {
 }
 
 .site-header {
-	border-top-color: #19082c;
-	background-color: #45197b;
+	border-top-color: $blue-color-dark;
+	background-color: $blue-color;
 }
 
 .site-header .site-title {
@@ -29,33 +29,41 @@ body {
 	text-decoration:none;
 }
 
-.site-nav .page-link {
-	color: #29B6F6;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+.site-header .site-nav .page-link {
+	color: #ffffff;
 	font-size: 18px;
 	font-variant: small-caps;
 }
 
-.site-nav span.page-link {
-	font-weight: 600;
+/**
+ * body
+ */
+
+main.page-content p {
+	line-height: 1.75;
 }
 
 .post-title {
-	letter-spacing: normal;
 	font-size: 40px;
-	line-height: 1.2;
-	margin-bottom: 10px;
-	color: #2d2d2d;
-	font-weight: 300;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: $blue-color;
 }
 
-.post-link {
-	display: initial;
+a.post-link {
+	font-size: 26px;
 }
 
-.post-link:hover {
-	color: #DD4D31;
+a.post-link:hover {
+	color: $orange-color;
+	text-decoration: none;
+}
+
+article.post h1,
+article.post h2,
+article.post h3,
+article.post h4,
+article.post h5,
+article.post h6 {
+	font-family: $title-font-family;
 }
 
 .post-content h1,
@@ -64,11 +72,7 @@ body {
 .post-content h4,
 .post-content h5,
 .post-content h6 {
-	color: #2d2d2d;
-}
-
-.post-content p {
-	line-height: 1.75;
+	color: $blue-color;
 }
 
 /**
@@ -99,47 +103,131 @@ body {
 /**
  * post meta
  */
+
+.post-meta time,
 .cat,
 .tag {
-	display: inline-block;
-	padding: 2px 4px;
-	margin: 0px 2px;
-	border: 1px solid #eee;
-	border-radius: 5px;
-	line-height: 1;
-	vertical-align: middle;
-	color: #337ab7;
-	text-align: center;
-	white-space: nowrap;
+	color: $brand-color;
+}
+
+.site-footer {
+	border-top: 5px solid $blue-color;
+	color: #444;
+	background-color: lighten($blue-color, 75%);
+}
+
+.site-footer a {
+	color: $blue-color;
+}
+
+.site-footer .footer-col-wrapper {
+	color: #444;
 }
 
 .site-footer .site-info {
 	font-size: 14px;
-	color: #828282;
+}
+
+/**
+ * code
+ */
+
+.highlighter-rouge .highlight {
+	background-color: $background-color-dark;
+}
+
+code {
+	color: $red-color;
+}
+
+pre code {
+	color: #0C3C26;
+}
+
+/**
+ * other
+ */
+
+kbd {
+	padding: 2px 4px;
+	font-size: 90%;
+	color: #fff;
+	background-color: #333;
+	border-radius: 3px;
+	-webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
+	box-shadow:inset 0 -1px 0 rgba(0,0,0,.25);
 }
 
 pre,
 code {
-	font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+	font-family: $mono-font-family;
 	font-size: 13px;
+}
+
+h1 > code,
+h2 > code,
+h3 > code,
+h4 > code,
+h5 > code,
+h6 > code {
+	font-size: 80%;
 }
 
 blockquote {
 	font-size: 95%;
 	letter-spacing: normal;
+	color: rgba(69, 25, 123, 0.77);
+	font-style: normal;
 }
 
 dt {
-	font-weight: bold;
+	font-weight: 600;
 }
 
 table {
-	border-collapse: collapse;
-	margin-bottom: 15px;
+	border: none;
+	margin: $spacing-unit / 2 auto;
+}
+
+th {
+	font-weight: 600;
+	color: #fdfefb;
+	background-color: $blue-color;
+}
+
+td {
+	background-color: #f4f4f4;
 }
 
 th,
 td {
-	border-bottom: 1px solid #ddd;
-	padding: 4px;
+	border: none;
+	padding: 8px;
 }
+
+/**
+ * code lino
+ */
+
+figure > pre > code > table {
+	margin: 0;
+	border: none;
+}
+
+figure > pre > code > table td {
+	padding: 0;
+}
+
+figure > pre > code > table td > pre {
+	margin: 0;
+	border: none;
+}
+
+figure > pre > code > table td > pre.lineno {
+	border-radius: 0;
+	border-right: 1px solid #e8e8e8;
+}
+
+/**
+ * general
+ */

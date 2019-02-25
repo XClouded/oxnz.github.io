@@ -1,25 +1,23 @@
 ---
 layout: post
 title: define vs const
-date: 2012-10-11 12:22:20 +0800
 type: post
 categories:
 - C
 - C++
-tags: []
-meta:
-  _edit_last: '1'
-author:
-  login: oxnz
-  email: yunxinyi@gmail.com
-  display_name: Will Z
-  first_name: Will
-  last_name: Z
 ---
+
+## Introduction
+
+This article describes the differences between `define` and `const` in both C and C++ programming languages.
+
+<!--more-->
 
 ## Differences
 
-1. `const` 定义常量是有数据类型的，而 `#define` 宏定义常量却没有。
+1. `const` 定义常量是有数据类型的，而 `#define` 宏定义常量却没有
+
+	`#define` 任意定义，而 `const` 是有类型要求，根据不同的情况，使用不同的定义方式。在有些场合，`const` 跟 `#define` 都能做到，但 `const` 做的更好，更健壮；在有些场合，`#define` 能做到，`const` 做不到
 
 	这样 `const` 定义的常量编译器可以对其进行数据静态类型安全检查，而 `#define` 宏定义的常量却只是进行简单的字符替换，没有类型安全检查，且有时还会产生边际效应。所谓边际效应举例如下：
 
@@ -40,17 +38,12 @@ author:
 
 5. `#define` 也可以定义带参数的宏，C++中使用 `inline` 函数来代替。
 
-6. `#define` 任意定义，而 `const` 是有类型要求，根据不同的情况，使用不同的定义方式。在有些场合，`const` 跟 `#define` 都能做到，但 `const` 做的更好，更健壮；在有些场合，`#define` 能做到，`const` 做不到
 
 ## const的思考
 
-1. 什么是const?
+常类型是指使用类型修饰符 const 说明的类型，常类型的变量或对象的值是不能被更新的。单这种保护是不健壮的，可以使用其他方式去更新。
 
-	常类型是指使用类型修饰符const说明的类型，常类型的变量或对象的值是不能被更新的。（当然，我们可以偷梁换柱进行更新：）
-
-2. 为什么引入const？
-
-　 const 推出的初始目的，正是为了取代预编译指令，消除它的缺点，同时继承它的优点。
+const 推出的初始目的，正是为了取代预编译指令，消除它的缺点，同时继承它的优点。
 
 3. `const` 有什么主要的作用？
 
